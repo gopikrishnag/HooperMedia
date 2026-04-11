@@ -9,4 +9,13 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('hooper-media-client');
+  protected readonly isMobileMenuOpen = signal(false);
+
+  protected toggleMobileMenu(): void {
+    this.isMobileMenuOpen.update((isOpen) => !isOpen);
+  }
+
+  protected closeMobileMenu(): void {
+    this.isMobileMenuOpen.set(false);
+  }
 }

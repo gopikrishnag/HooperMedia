@@ -29,7 +29,8 @@ const angularApp = new AngularNodeAppEngine();
  */
 app.use(
   express.static(browserDistFolder, {
-    maxAge: '1y',
+    // Keep cache conservative so stale UI is not served during frequent rebuilds.
+    maxAge: 0,
     index: false,
     redirect: false,
   }),

@@ -36,6 +36,44 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+## Docker
+
+This application is configured to run as an Angular SSR Node container.
+
+Run commands from the project root:
+
+```bash
+Client/hooper-media-client
+```
+
+Build and start the client container (fresh build):
+
+```bash
+docker compose up --build
+```
+
+The app will be available at `http://localhost:56165`.
+
+If you see stale UI from older builds, run a full no-cache rebuild:
+
+```bash
+docker compose down --remove-orphans
+docker compose build --no-cache
+docker compose up -d --force-recreate
+```
+
+Stop and remove the container and network:
+
+```bash
+docker compose down
+```
+
+Optional: run in detached mode:
+
+```bash
+docker compose up --build -d
+```
+
 ## Running unit tests
 
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:

@@ -1,344 +1,106 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: block;
-    height: 100dvh;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+ 
+<nav class="relative bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button type="button" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen()" aria-controls="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          @if (!isMobileMenuOpen()) {
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          } @else {
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          }
+        </button>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
+      <div class="flex flex-1 items-center justify-center sm:justify-start">
+        <div class="flex shrink-0 items-center">
+          <!-- <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" class="h-8 w-auto" /> -->
+           <svg preserveAspectRatio="xMidYMid meet" data-bbox="0.094 0.093 439.502 59.669" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 440.389 60.088" height="227.105" width="1664.462" data-type="ugc" role="presentation" aria-hidden="true" aria-label="" class="h-8 w-auto max-w-44 shrink-0">
+    <g>
+        <defs>
+            <linearGradient id="029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4">
+                <stop offset="0" stop-color="#617397"></stop>
+            </linearGradient>
+            <linearGradient gradientUnits="userSpaceOnUse" y2="255.721" x2="123.277" y1="255.721" x1="66.101" id="0a8654e9-8ccd-40e2-9488-432a62826d1e_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientUnits="userSpaceOnUse" y2="255.41" x2="175.778" y1="255.41" x1="118.137" id="39cca782-a009-455a-bde7-1ffb3f7eef91_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientUnits="userSpaceOnUse" y2="255.411" x2="227.599" y1="255.411" x1="170.211" id="80a00196-b809-4c88-a063-0de0b4cb3a7a_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientUnits="userSpaceOnUse" y2="255.41" x2="280.442" y1="255.41" x1="222.27" id="087de4f7-e138-4431-8d53-e539a8c8930e_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientUnits="userSpaceOnUse" y2="255.625" x2="331.14" y1="255.625" x1="274.453" id="56027e26-584f-48af-a100-bc149046cf00_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-44.426 -851.616) scale(3.77953)" y2="254.973" x2="71.18" y1="254.973" x1="11.661" gradientUnits="userSpaceOnUse" id="956f2425-f2da-4914-8e9c-eb0e42062028_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="256.433" x2="379.164" y1="256.433" x1="344.034" id="e4e13027-92b3-448d-b7d7-38124c788cbf_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="256.901" x2="326.079" y1="256.901" x1="290.95" id="aa197bee-4175-40bc-b0ed-cf2924476168_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="260.119" x2="431.047" y1="260.119" x1="395.917" id="ba53a8d0-d489-4582-bff5-4ffd36f43895_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="255.685" x2="483.642" y1="255.685" x1="448.853" id="50e7e8f2-0fc7-4c42-9610-af0b840022d0_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="256.023" x2="527.631" y1="256.023" x1="510.577" id="2b4e3bc5-40e6-4f95-b082-880bbfa5920c_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="256.433" x2="379.199" y1="256.433" x1="343.999" id="95f805b3-391c-42cf-8552-5665a90f10fa_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="256.901" x2="326.114" y1="256.901" x1="290.915" id="96030a4f-85fe-4fad-8068-4f9ad61c7b65_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="260.122" x2="431.082" y1="260.122" x1="395.882" id="61b84ff7-c17f-4dd8-9aea-1b896e0f30c2_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="255.685" x2="483.677" y1="255.685" x1="448.818" id="b343dcb0-c221-45eb-bbd8-17850b97b456_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-215.946 -.821)" gradientUnits="userSpaceOnUse" y2="256.023" x2="527.68" y1="256.023" x1="510.542" id="72abc8c1-a881-4eb8-9f0e-bb1e6d680089_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(-44.426 -851.616) scale(3.77953)" gradientUnits="userSpaceOnUse" y2="254.973" x2="71.18" y1="254.973" x1="11.661" id="e73342c7-307c-4d69-b1a9-353ee5855334_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(138.716 18.587)" gradientUnits="userSpaceOnUse" y2="259.419" x2="212.23" y1="259.419" x1="192.052" id="4a1d8db8-51b2-457e-90bb-2055e603b2d6_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(138.716 18.322)" gradientUnits="userSpaceOnUse" y2="259.551" x2="236.23" y1="259.551" x1="222.315" id="01b9134e-0edb-4dd5-a01b-67161f747fbc_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(138.65 17.528)" gradientUnits="userSpaceOnUse" y2="257.919" x2="262.961" y1="257.919" x1="248.909" id="302d18e0-3cb4-4ddc-8485-cb98c768025e_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(138.716 18.587)" gradientUnits="userSpaceOnUse" y2="256.88" x2="282.332" y1="256.88" x1="279.468" id="13e83151-0f16-484c-b7be-b49b247033aa_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+            <linearGradient gradientTransform="translate(138.716 18.587)" gradientUnits="userSpaceOnUse" y2="259.234" x2="312.54" y1="259.234" x1="298.489" id="06db7a20-da5f-4ce1-b4f7-624fbdd1547d_comp-l3k1t7x4" xlink:href="#029d6255-48da-445e-a53f-aaca510d410e_comp-l3k1t7x4"></linearGradient>
+        </defs>
+        <path d="M67.097 241.857a29.378 28.446 0 0 1 31.518-14.01 29.378 28.446 0 0 1 23.344 24.836 29.378 28.446 0 0 1-17.364 29.069 29.378 28.446 0 0 1-33.872-7.209" fill="none" stroke="url(#0a8654e9-8ccd-40e2-9488-432a62826d1e_comp-l3k1t7x4)" stroke-width="2.299" transform="translate(-11.66 -225.23)"></path>
+        <path d="M123.486 236.427a29.311 28.447 0 0 1 34.074-6.863 29.311 28.447 0 0 1 16.815 29.57 29.311 28.447 0 0 1-24.147 24.322 29.311 28.447 0 0 1-31.071-15.212" fill="none" stroke="url(#39cca782-a009-455a-bde7-1ffb3f7eef91_comp-l3k1t7x4)" stroke-width="2.299" transform="translate(-11.66 -225.23)"></path>
+        <path d="M171.21 241.694a29.445 28.443 0 0 1 29.683-14.478 29.445 28.443 0 0 1 24.724 21.48 29.445 28.443 0 0 1-11.767 30.043 29.445 28.443 0 0 1-33.251.29" fill="none" stroke="url(#80a00196-b809-4c88-a063-0de0b4cb3a7a_comp-l3k1t7x4)" stroke-width="2.299" transform="translate(-11.66 -225.23)"></path>
+        <path d="M228.053 236.105a29.544 28.44 0 0 1 34.393-6.373 29.544 28.44 0 0 1 16.546 29.715 29.544 28.44 0 0 1-24.554 24.042 29.544 28.44 0 0 1-31.146-15.419" fill="none" stroke="url(#087de4f7-e138-4431-8d53-e539a8c8930e_comp-l3k1t7x4)" stroke-width="2.299" transform="translate(-11.66 -225.23)"></path>
+        <path d="M275.424 240.786a29.445 28.443 0 0 1 31.529-12.922A29.445 28.443 0 0 1 329.81 252.5a29.445 28.443 0 0 1-16.738 28.864 29.445 28.443 0 0 1-33.688-5.96" fill="none" stroke="url(#56027e26-584f-48af-a100-bc149046cf00_comp-l3k1t7x4)" stroke-width="2.299" transform="translate(-11.66 -225.23)"></path>
+        <path transform="translate(.094 .093) scale(.26458)" d="M112.123 0A112.123 112.063 0 0 0 70.92 7.89v65.6c6.64-8.75 13.945-15.273 21.914-19.57 7.969-4.375 16.602-6.563 25.898-6.563 9.532 0 17.97 2.422 25.313 7.266 7.422 4.844 12.89 11.367 16.406 19.57 3.516 8.125 5.274 20.899 5.274 38.32v87.626l-16.407 9v-91.82c0-14.688-.586-24.493-1.757-29.415-2.032-8.437-5.743-14.765-11.133-18.984-5.313-4.297-12.305-6.445-20.977-6.445-9.922 0-18.828 3.28-26.719 9.843-7.812 6.563-12.968 14.688-15.468 24.375-1.563 6.25-2.344 17.813-2.344 34.688v75.508l-16.406-9.5V15.977A112.123 112.063 0 0 0 0 112.062a112.123 112.063 0 0 0 112.123 112.065 112.123 112.063 0 0 0 112.123-112.065A112.123 112.063 0 0 0 112.123 0Z" fill="url(#e73342c7-307c-4d69-b1a9-353ee5855334_comp-l3k1t7x4)" stroke="url(#956f2425-f2da-4914-8e9c-eb0e42062028_comp-l3k1t7x4)" stroke-width=".706"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="M92.584 238.344q7.783 0 12.899 5.643 4.65 5.147 4.65 12.186 0 7.069-4.93 12.37-4.898 5.272-12.619 5.272-7.751 0-12.681-5.271-4.9-5.302-4.9-12.371 0-7.008 4.652-12.155 5.116-5.674 12.93-5.674zm0 4.248q-5.395 0-9.27 4-3.876 4-3.876 9.674 0 3.658 1.767 6.82 1.767 3.163 4.775 4.9 3.008 1.705 6.604 1.705 3.597 0 6.604-1.705 3.008-1.737 4.775-4.9 1.768-3.162 1.768-6.82 0-5.674-3.907-9.674-3.876-4-9.24-4z" font-size="63.5" font-family="UD Digi Kyokasho NK-B" fill="url(#96030a4f-85fe-4fad-8068-4f9ad61c7b65_comp-l3k1t7x4)" stroke="url(#aa197bee-4175-40bc-b0ed-cf2924476168_comp-l3k1t7x4)" stroke-width=".07" transform="translate(-11.66 -225.23)"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="M145.669 237.876q7.782 0 12.898 5.644 4.651 5.147 4.651 12.185 0 7.07-4.93 12.371-4.899 5.271-12.619 5.271-7.751 0-12.681-5.27-4.9-5.303-4.9-12.372 0-7.007 4.652-12.154 5.116-5.675 12.929-5.675zm0 4.248q-5.395 0-9.27 4-3.876 4-3.876 9.674 0 3.659 1.767 6.821 1.767 3.163 4.775 4.9 3.007 1.704 6.604 1.704t6.604-1.705q3.008-1.736 4.775-4.899 1.767-3.162 1.767-6.821 0-5.674-3.906-9.674-3.876-4-9.24-4z" font-size="63.5" font-family="UD Digi Kyokasho NK-B" fill="url(#95f805b3-391c-42cf-8552-5665a90f10fa_comp-l3k1t7x4)" stroke="url(#e4e13027-92b3-448d-b7d7-38124c788cbf_comp-l3k1t7x4)" stroke-width=".07" transform="translate(-11.66 -225.23)"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="M179.971 238.745h4.31v6.2c1.716-2.356 3.69-4.123 5.922-5.301 2.233-1.178 4.723-1.768 7.473-1.768 4.795 0 8.898 1.726 12.309 5.178 3.41 3.452 5.116 7.607 5.116 12.465 0 4.96-1.695 9.178-5.085 12.65-3.37 3.452-7.441 5.178-12.216 5.178-2.687 0-5.158-.558-7.41-1.674-2.254-1.116-4.29-2.78-6.109-4.992v14.037l-4.31-.793zm17.364 3.317c-3.762 0-6.935 1.313-9.52 3.938-2.562 2.625-3.844 5.891-3.844 9.798 0 2.563.569 4.868 1.705 6.914 1.158 2.047 2.801 3.67 4.93 4.868 2.15 1.199 4.414 1.798 6.79 1.798 2.336 0 4.527-.599 6.574-1.798 2.067-1.22 3.71-2.914 4.93-5.085 1.22-2.17 1.83-4.444 1.83-6.821 0-2.398-.61-4.672-1.83-6.821-1.2-2.15-2.822-3.814-4.868-4.992-2.047-1.2-4.279-1.799-6.697-1.799z" font-size="63.5" font-family="UD Digi Kyokasho NK-B" fill="url(#61b84ff7-c17f-4dd8-9aea-1b896e0f30c2_comp-l3k1t7x4)" stroke="url(#ba53a8d0-d489-4582-bff5-4ffd36f43895_comp-l3k1t7x4)" stroke-width=".07" transform="translate(-11.66 -225.23)"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="m262.921 260.538 3.659 1.922q-1.798 3.535-4.155 5.705-2.356 2.17-5.302 3.318-2.945 1.116-6.666 1.116-8.248 0-12.898-5.395-4.651-5.426-4.651-12.247 0-6.419 3.937-11.442 4.992-6.387 13.364-6.387 8.62 0 13.767 6.542 3.658 4.62 3.72 11.535h-30.323q.124 5.89 3.751 9.673 3.628 3.752 8.96 3.752 2.574 0 4.993-.9 2.45-.898 4.155-2.387 1.705-1.488 3.69-4.805zm0-9.085q-.868-3.473-2.542-5.55-1.643-2.078-4.372-3.349-2.728-1.271-5.736-1.271-4.961 0-8.527 3.194-2.604 2.325-3.937 6.976z" font-size="63.5" font-family="UD Digi Kyokasho NK-B" fill="url(#b343dcb0-c221-45eb-bbd8-17850b97b456_comp-l3k1t7x4)" stroke="url(#50e7e8f2-0fc7-4c42-9610-af0b840022d0_comp-l3k1t7x4)" stroke-width=".07" transform="translate(-11.66 -225.23)"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="M294.632 238.768h4.434v4.93q1.984-2.915 4.185-4.34 2.202-1.458 4.59-1.458 1.798 0 3.844 1.147l-2.264 3.659q-1.364-.59-2.294-.59-2.17 0-4.186 1.799-2.015 1.767-3.07 5.52-.805 2.883-.805 11.657v11.41h-4.434z" font-size="63.5" font-family="UD Digi Kyokasho NK-B" fill="url(#72abc8c1-a881-4eb8-9f0e-bb1e6d680089_comp-l3k1t7x4)" stroke="url(#2b4e3bc5-40e6-4f95-b082-880bbfa5920c_comp-l3k1t7x4)" stroke-width=".07" transform="translate(-11.66 -225.23)"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="M330.767 271.432h1.724v2.332q.906-1.29 1.86-1.886 1.315-.793 2.766-.793.98 0 1.86.384.881.385 1.44 1.03.558.632.967 1.823.868-1.588 2.17-2.406 1.303-.831 2.803-.831 1.402 0 2.468.707 1.08.707 1.6 1.972.521 1.265.521 3.795v7.367h-1.773v-7.367q0-2.17-.31-2.977-.31-.818-1.067-1.315-.744-.496-1.786-.496-1.265 0-2.32.745-1.041.744-1.525 1.984-.483 1.24-.483 4.142v5.284h-1.724v-6.908q0-2.444-.31-3.312-.298-.88-1.055-1.401-.756-.534-1.798-.534-1.203 0-2.257.732-1.042.72-1.55 1.947-.497 1.228-.497 3.758v5.718h-1.724z" font-size="25.4" font-family="Century Gothic" fill="url(#4a1d8db8-51b2-457e-90bb-2055e603b2d6_comp-l3k1t7x4)" transform="translate(-11.66 -225.23)"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="m373.036 280.142 1.464.77q-.72 1.413-1.662 2.281-.943.868-2.121 1.327-1.178.447-2.667.447-3.299 0-5.159-2.158-1.86-2.17-1.86-4.9 0-2.566 1.575-4.576 1.997-2.555 5.345-2.555 3.448 0 5.507 2.617 1.463 1.848 1.488 4.614h-12.13q.05 2.356 1.501 3.87 1.451 1.5 3.585 1.5 1.029 0 1.996-.36.98-.36 1.662-.954.682-.596 1.476-1.923zm0-3.634q-.347-1.389-1.017-2.22-.657-.83-1.749-1.34-1.091-.508-2.294-.508-1.984 0-3.41 1.278-1.042.93-1.576 2.79z" font-size="25.4" font-family="Century Gothic" fill="url(#01b9134e-0edb-4dd5-a01b-67161f747fbc_comp-l3k1t7x4)" transform="translate(-11.66 -225.23)"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="M401.61 265.922v18.703h-1.71v-2.32q-1.092 1.327-2.457 1.997-1.351.67-2.964.67-2.865 0-4.899-2.071-2.021-2.084-2.021-5.06 0-2.915 2.046-4.986 2.047-2.071 4.924-2.071 1.662 0 3.001.706 1.352.707 2.37 2.121v-7.69zm-6.945 6.536q-1.45 0-2.679.72-1.227.706-1.96 1.996-.718 1.29-.718 2.728 0 1.427.731 2.729.732 1.302 1.96 2.034 1.24.72 2.654.72 1.426 0 2.704-.72 1.277-.72 1.96-1.947.694-1.228.694-2.766 0-2.344-1.55-3.919-1.538-1.575-3.796-1.575z" font-size="25.4" font-family="Century Gothic" fill="url(#302d18e0-3cb4-4ddc-8485-cb98c768025e_comp-l3k1t7x4)" transform="translate(-11.66 -225.23)"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="M419.61 265.942q.595 0 1.016.422.422.421.422 1.017 0 .582-.422 1.004-.421.422-1.017.422-.582 0-1.004-.422-.422-.422-.422-1.004 0-.596.422-1.017.422-.422 1.004-.422zm-.869 5.556h1.749v13.494h-1.749z" font-size="25.4" font-family="Century Gothic" fill="url(#13e83151-0f16-484c-b7be-b49b247033aa_comp-l3k1t7x4)" transform="translate(-11.66 -225.23)"></path>
+        <path style="-inkscape-font-specification:'Century Gothic'" d="M451.256 271.073v13.494h-1.711v-2.319q-1.092 1.327-2.456 1.997-1.352.67-2.964.67-2.865 0-4.9-2.072-2.02-2.083-2.02-5.06 0-2.914 2.046-4.986 2.046-2.07 4.923-2.07 1.662 0 3.002.706 1.352.707 2.368 2.12v-2.48zm-6.945 1.328q-1.451 0-2.68.719-1.227.707-1.959 1.997-.72 1.29-.72 2.728 0 1.426.733 2.729.731 1.302 1.96 2.034 1.24.719 2.653.719 1.427 0 2.704-.72 1.277-.719 1.96-1.947.694-1.227.694-2.765 0-2.344-1.55-3.92-1.538-1.574-3.795-1.574z" font-size="25.4" font-family="Century Gothic" fill="url(#06db7a20-da5f-4ce1-b4f7-624fbdd1547d_comp-l3k1t7x4)" transform="translate(-11.66 -225.23)"></path>
+    </g>
+</svg>
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex items-center space-x-4">
+            <a href="#" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Person</a>
+            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Address</a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <button type="button" class="relative rounded-full p-1 text-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
+          <span class="absolute -inset-1.5"></span>
+          <span class="sr-only">View notifications</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+            <path d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-        </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+        </button>
+
+         
       </div>
     </div>
   </div>
-</main>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  @if (isMobileMenuOpen()) {
+  <div id="mobile-menu" class="sm:hidden border-t border-white/10 bg-gray-800">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <a href="#" (click)="closeMobileMenu()" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Person</a>
+      <a href="#" (click)="closeMobileMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Address</a>
+    </div>
+  </div>
+  }
+
+   
+</nav>
 
 
 <router-outlet />
