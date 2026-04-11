@@ -1,0 +1,286 @@
+{
+  "info": {
+    "_postman_id": "99015e84-a4a8-4596-a371-425765738796",
+    "name": "HooperMedia",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "840137"
+  },
+  "item": [
+    {
+      "name": "Person",
+      "item": [
+        {
+          "name": "Get - Single Person",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/Person/4",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Person",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get - Person",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/Person",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Person"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update - Person",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Name\": \"Gopi Govid - 5\",\r\n    \"DateOfBirth\": \"2030-03-12T00:00:00\"\r\n  }\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/Person/2",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Person",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete - Person",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Name\": \"Gopi Govid - 5\",\r\n    \"DateOfBirth\": \"2030-03-12T00:00:00\"\r\n  }\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/Person/2",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Person",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create - Person",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Name\": \"Gopi 3 \",\r\n    \"DateOfBirth\": \"2014-03-12T00:00:00\"\r\n  }\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/Person",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Person"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Address",
+      "item": [
+        {
+          "name": "Get - Single Address",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/Address/1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Address",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get - Address",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/Address",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Address"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get - Address by person",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/Address/person/3",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Address",
+                "person",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update - Address",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"PersonId\": \"1\",\r\n    \"AddressLine1\": \"5 High street\",\r\n    \"AddressLine2\": \"xyz\",\r\n    \"TownOrCity\": \"Eastham\",\r\n    \"ZipOrPostCode\": \"E12 3HS\",\r\n    \"Country\":\"UK3\"\r\n    \r\n  }\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/address/1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "address",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete - Address",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"Name\": \"Gopi Govid - 5\",\r\n    \"DateOfBirth\": \"2030-03-12T00:00:00\"\r\n  }\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/address/3",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "address",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create - Address",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"PersonId\": \"3\",\r\n    \"AddressLine1\": \"5 High street\",\r\n    \"AddressLine2\": \"abv\",\r\n    \"TownOrCity\": \"Bexley\",\r\n    \"ZipOrPostCode\": \"Da7 6qj\",\r\n    \"Country\":\"UK3\"\r\n    \r\n  }\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/Address",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "Address"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "App status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/status",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "status"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
