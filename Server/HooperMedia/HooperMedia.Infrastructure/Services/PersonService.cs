@@ -25,6 +25,9 @@ namespace HooperMedia.Infrastructure.Services
             ValidatePerson(person);
             return await personRepository.AddAsync(person);
         }
+
+        //TODO:  keep it separate class for validations
+
         private static void ValidatePerson(Person person)
         {
             if (string.IsNullOrWhiteSpace(person.Name) || person.Name.Length > PersonBusinessRules.NameMaxLength)

@@ -1,4 +1,4 @@
-﻿namespace HooperMedia.Api.Controllers.DTOs
+﻿namespace HooperMedia.Api.DTOs
 {
     public class PersonDto
     {

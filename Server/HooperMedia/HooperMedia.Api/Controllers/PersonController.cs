@@ -1,4 +1,4 @@
-﻿using HooperMedia.Api.Controllers.DTOs;
+﻿using HooperMedia.Api.DTOs;
 using HooperMedia.Core.Entities;
 using HooperMedia.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +7,8 @@ namespace HooperMedia.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PersonController(ILogger<PersonController> logger, IPersonService personService) : ControllerBase
+    public class PersonController(ILogger<PersonController> logger, 
+                                  IPersonService personService) : ControllerBase
     {
       
 

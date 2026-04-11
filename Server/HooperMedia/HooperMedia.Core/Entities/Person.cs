@@ -10,6 +10,6 @@ namespace HooperMedia.Core.Entities
         public int PersonId { get; set; }
         public required string Name { get; set; }
         public required DateTime DateOfBirth { get; set; }
-
+        public virtual ICollection<Address> Addresses { get; set; } = [];
     }
 }
