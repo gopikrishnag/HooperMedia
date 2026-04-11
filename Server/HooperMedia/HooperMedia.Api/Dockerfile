@@ -2,7 +2,8 @@
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
-USER $APP_UID
+ARG APP_UID=1000
+USER ${APP_UID}
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
@@ -13,6 +14,8 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["HooperMedia.Api/HooperMedia.Api.csproj", "HooperMedia.Api/"]
+COPY ["HooperMedia.Infrastructure/HooperMedia.Infrastructure.csproj", "HooperMedia.Infrastructure/"]
+COPY ["HooperMedia.Core/HooperMedia.Core.csproj", "HooperMedia.Core/"]
 RUN dotnet restore "./HooperMedia.Api/HooperMedia.Api.csproj"
 COPY . .
 WORKDIR "/src/HooperMedia.Api"

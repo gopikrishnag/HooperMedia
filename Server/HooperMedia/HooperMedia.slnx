@@ -2,4 +2,5 @@
   <Project Path="HooperMedia.Api/HooperMedia.Api.csproj" />
   <Project Path="HooperMedia.Core/HooperMedia.Core.csproj" />
   <Project Path="HooperMedia.Infrastructure/HooperMedia.Infrastructure.csproj" />
+  <Project Path="HooperMedia.Tests/HooperMedia.Tests.csproj" />
 </Solution>
