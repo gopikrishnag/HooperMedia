@@ -1,4 +1,4 @@
-﻿ 
+﻿using HooperMedia.Core.BusinessRules;
 using HooperMedia.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,7 +22,7 @@ namespace HooperMedia.Infrastructure.Data
 
                 entity.Property(p => p.Name)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(PersonBusinessRules.NameMaxLength);
 
                 entity.Property(p => p.DateOfBirth)
                     .IsRequired();
