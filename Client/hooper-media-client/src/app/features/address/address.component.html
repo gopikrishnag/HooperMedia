@@ -1,0 +1,213 @@
+<!--TODO : Person Name - ID -- Dropdown needs to make it reusable component for use other forms -->
+<section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="mb-6 flex items-center justify-between gap-4">
+    <h1 class="text-2xl font-semibold text-slate-800">{{ translate('address.title') }}</h1>
+  </div>
+
+  <div class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+    <form [formGroup]="addressForm" (ngSubmit)="saveAddress()" class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div>
+        <label for="personId" class="mb-1 block text-sm font-medium text-slate-700">{{ translate('address.form.personIdLabel') }}</label>
+        <select
+          id="personId"
+          formControlName="personId"
+          class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+        >
+          <option [ngValue]="null">{{ translate('address.form.personIdPlaceholder') }}</option>
+          @for (person of persons(); track person.personId) {
+            <option [ngValue]="person.personId">{{ person.name || person.personId }}</option>
+          }
+        </select>
+        @if (addressForm.controls.personId.touched && addressForm.controls.personId.hasError('required')) {
+          <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.personIdRequired') }}</p>
+        }
+      </div>
+
+      <div>
+        <label for="addressLine1" class="mb-1 block text-sm font-medium text-slate-700">{{ translate('address.form.addressLine1Label') }}</label>
+        <input
+          id="addressLine1"
+          type="text"
+          formControlName="addressLine1"
+          [placeholder]="translate('address.form.addressLine1Placeholder')"
+          class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+        />
+        @if (addressForm.controls.addressLine1.touched && addressForm.controls.addressLine1.invalid) {
+          @if (addressForm.controls.addressLine1.hasError('required')) {
+            <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.addressLine1Required') }}</p>
+          }
+          @if (addressForm.controls.addressLine1.hasError('maxlength')) {
+            <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.addressLine1MaxLength') }}</p>
+          }
+        }
+      </div>
+
+      <div>
+        <label for="addressLine2" class="mb-1 block text-sm font-medium text-slate-700">{{ translate('address.form.addressLine2Label') }}</label>
+        <input
+          id="addressLine2"
+          type="text"
+          formControlName="addressLine2"
+          [placeholder]="translate('address.form.addressLine2Placeholder')"
+          class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+        />
+        @if (addressForm.controls.addressLine2.touched && addressForm.controls.addressLine2.hasError('maxlength')) {
+          <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.addressLine2MaxLength') }}</p>
+        }
+      </div>
+
+      <div>
+        <label for="townOrCity" class="mb-1 block text-sm font-medium text-slate-700">{{ translate('address.form.townOrCityLabel') }}</label>
+        <input
+          id="townOrCity"
+          type="text"
+          formControlName="townOrCity"
+          [placeholder]="translate('address.form.townOrCityPlaceholder')"
+          class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+        />
+        @if (addressForm.controls.townOrCity.touched && addressForm.controls.townOrCity.invalid) {
+          @if (addressForm.controls.townOrCity.hasError('required')) {
+            <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.townOrCityRequired') }}</p>
+          }
+          @if (addressForm.controls.townOrCity.hasError('maxlength')) {
+            <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.townOrCityMaxLength') }}</p>
+          }
+        }
+      </div>
+
+      <div>
+        <label for="zipOrPostCode" class="mb-1 block text-sm font-medium text-slate-700">{{ translate('address.form.zipOrPostCodeLabel') }}</label>
+        <input
+          id="zipOrPostCode"
+          type="text"
+          formControlName="zipOrPostCode"
+          [placeholder]="translate('address.form.zipOrPostCodePlaceholder')"
+          class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+        />
+        @if (addressForm.controls.zipOrPostCode.touched && addressForm.controls.zipOrPostCode.invalid) {
+          @if (addressForm.controls.zipOrPostCode.hasError('required')) {
+            <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.zipOrPostCodeRequired') }}</p>
+          }
+          @if (addressForm.controls.zipOrPostCode.hasError('maxlength')) {
+            <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.zipOrPostCodeMaxLength') }}</p>
+          }
+        }
+      </div>
+
+      <div>
+        <label for="country" class="mb-1 block text-sm font-medium text-slate-700">{{ translate('address.form.countryLabel') }}</label>
+        <input
+          id="country"
+          type="text"
+          formControlName="country"
+          [placeholder]="translate('address.form.countryPlaceholder')"
+          class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+        />
+        @if (addressForm.controls.country.touched && addressForm.controls.country.invalid) {
+          @if (addressForm.controls.country.hasError('required')) {
+            <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.countryRequired') }}</p>
+          }
+          @if (addressForm.controls.country.hasError('maxlength')) {
+            <p class="mt-1 text-xs text-red-600">{{ translate('address.validation.countryMaxLength') }}</p>
+          }
+        }
+      </div>
+
+      <div class="flex items-end gap-2 xl:col-span-3">
+        <button
+          type="submit"
+          [disabled]="submitting() || loadingPersons() || persons().length === 0"
+          class="rounded-md bg-slate-800 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {{ submitButtonText }}
+        </button>
+
+        @if (isEditMode) {
+          <button
+            type="button"
+            (click)="cancelEdit()"
+            class="rounded-md border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+          >
+            {{ translate('address.actions.cancel') }}
+          </button>
+        }
+      </div>
+    </form>
+  </div>
+
+  @if (errorMessage()) {
+    <div class="mt-4 rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700">
+      {{ errorMessage() }}
+    </div>
+  }
+
+  @if (loadingPersons()) {
+    <div class="mt-4 rounded-md border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+      {{ translate('address.messages.loadingPersons') }}
+    </div>
+  } @else if (persons().length === 0) {
+    <div class="mt-4 rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+      {{ translate('address.messages.noPersons') }}
+    </div>
+  }
+
+  <div class="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+    <table class="min-w-full divide-y divide-slate-200">
+      <thead class="bg-slate-50">
+        <tr>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('address.table.personId') }}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('address.table.addressLine1') }}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('address.table.addressLine2') }}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('address.table.townOrCity') }}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('address.table.zipOrPostCode') }}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('address.table.country') }}</th>
+          <th class="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('address.table.actions') }}</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-100">
+        @if (loadingAddresses()) {
+          <tr>
+            <td colspan="7" class="px-4 py-8 text-center text-sm text-slate-500">{{ translate('address.messages.loading') }}</td>
+          </tr>
+        } @else if (selectedPersonId() === null) {
+          <tr>
+            <td colspan="7" class="px-4 py-8 text-center text-sm text-slate-500">{{ translate('address.messages.selectPerson') }}</td>
+          </tr>
+        } @else if (addresses().length === 0) {
+          <tr>
+            <td colspan="7" class="px-4 py-8 text-center text-sm text-slate-500">{{ translate('address.messages.noData') }}</td>
+          </tr>
+        } @else {
+          @for (address of addresses(); track address.addressId) {
+            <tr>
+              <td class="px-4 py-3 text-sm text-slate-700">{{ address.personId }}</td>
+              <td class="px-4 py-3 text-sm text-slate-900">{{ address.addressLine1 }}</td>
+              <td class="px-4 py-3 text-sm text-slate-700">{{ address.addressLine2 || '-' }}</td>
+              <td class="px-4 py-3 text-sm text-slate-700">{{ address.townOrCity }}</td>
+              <td class="px-4 py-3 text-sm text-slate-700">{{ address.zipOrPostCode }}</td>
+              <td class="px-4 py-3 text-sm text-slate-700">{{ address.country }}</td>
+              <td class="px-4 py-3 text-right text-sm">
+                <div class="inline-flex items-center gap-2">
+                  <button
+                    type="button"
+                    (click)="editAddress(address)"
+                    class="rounded-md border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100"
+                  >
+                    {{ translate('address.actions.edit') }}
+                  </button>
+                  <button
+                    type="button"
+                    (click)="deleteAddress(address)"
+                    class="rounded-md border border-red-300 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-50"
+                  >
+                    {{ translate('address.actions.delete') }}
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

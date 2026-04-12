@@ -72,7 +72,7 @@
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex items-center space-x-4">
             <a routerLink="/persons" routerLinkActive="bg-indigo-100 text-indigo-700" [routerLinkActiveOptions]="{ exact: true }" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900">{{ translate('app.menu.person') }}</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900">{{ translate('app.menu.address') }}</a>
+            <a routerLink="/addresses" routerLinkActive="bg-indigo-100 text-indigo-700" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900">{{ translate('app.menu.address') }}</a>
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@
   <div id="mobile-menu" class="sm:hidden border-t border-gray-200 bg-gray-50">
     <div class="space-y-1 px-2 pb-3 pt-2">
       <a routerLink="/persons" routerLinkActive="bg-indigo-100 text-indigo-700" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900">{{ translate('app.menu.person') }}</a>
-      <a href="#" (click)="closeMobileMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900">{{ translate('app.menu.address') }}</a>
+      <a routerLink="/addresses" routerLinkActive="bg-indigo-100 text-indigo-700" (click)="closeMobileMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900">{{ translate('app.menu.address') }}</a>
 
       <div class="pt-2">
         <label for="mobile-language-select" class="mb-1 block text-xs font-medium text-gray-700">{{ translate('app.language.label') }}</label>
