@@ -1,0 +1,107 @@
+{
+  "app": {
+    "menu": {
+      "openMain": "Hauptmenü öffnen",
+      "person": "Person",
+      "address": "Adresse",
+      "viewNotifications": "Benachrichtigungen anzeigen"
+    },
+    "language": {
+      "label": "Sprache"
+    }
+  },
+  "person": {
+    "title": "Personen",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Vollständigen Namen eingeben",
+      "dateOfBirthLabel": "Geburtsdatum"
+    },
+    "table": {
+      "name": "Name",
+      "dateOfBirth": "Geburtsdatum",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "add": "Person hinzufügen",
+      "update": "Person aktualisieren",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen"
+    },
+    "validation": {
+      "nameRequired": "Name ist erforderlich.",
+      "nameMaxLength": "Name darf 50 Zeichen nicht überschreiten.",
+      "dateOfBirthRequired": "Geburtsdatum ist erforderlich.",
+      "futureDate": "Das Geburtsdatum kann nicht in der Zukunft liegen.",
+      "tooOld": "Das Alter kann 100 Jahre nicht überschreiten."
+    },
+    "messages": {
+      "loading": "Personen werden geladen...",
+      "noData": "Keine Personen gefunden.",
+      "loadFailed": "Personen konnten nicht geladen werden.",
+      "createFailed": "Person konnte nicht erstellt werden.",
+      "updateFailed": "Person konnte nicht aktualisiert werden.",
+      "deleteFailed": "Person konnte nicht gelöscht werden.",
+      "deleteConfirm": "{name} löschen?"
+    }
+  },
+  "address": {
+    "title": "Adressen",
+    "form": {
+      "personIdLabel": "Personen-ID",
+      "personIdPlaceholder": "Personen-ID auswählen",
+      "addressLine1Label": "Adresszeile 1",
+      "addressLine1Placeholder": "Adresszeile 1 eingeben",
+      "addressLine2Label": "Adresszeile 2",
+      "addressLine2Placeholder": "Adresszeile 2 eingeben",
+      "townOrCityLabel": "Ort oder Stadt",
+      "townOrCityPlaceholder": "Ort oder Stadt eingeben",
+      "zipOrPostCodeLabel": "PLZ oder Postleitzahl",
+      "zipOrPostCodePlaceholder": "PLZ oder Postleitzahl eingeben",
+      "countryLabel": "Land",
+      "countryPlaceholder": "Land eingeben"
+    },
+    "table": {
+      "personId": "Personen-ID",
+      "addressLine1": "Adresszeile 1",
+      "addressLine2": "Adresszeile 2",
+      "townOrCity": "Ort oder Stadt",
+      "zipOrPostCode": "PLZ oder Postleitzahl",
+      "country": "Land",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "add": "Adresse hinzufügen",
+      "update": "Adresse aktualisieren",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen"
+    },
+    "validation": {
+      "personIdRequired": "Die Auswahl einer Person ist erforderlich.",
+      "addressLine1Required": "Adresszeile 1 ist erforderlich.",
+      "addressLine1MaxLength": "Adresszeile 1 darf 100 Zeichen nicht überschreiten.",
+      "addressLine2MaxLength": "Adresszeile 2 darf 100 Zeichen nicht überschreiten.",
+      "townOrCityRequired": "Ort oder Stadt ist erforderlich.",
+      "townOrCityMaxLength": "Ort oder Stadt darf 100 Zeichen nicht überschreiten.",
+      "zipOrPostCodeRequired": "PLZ oder Postleitzahl ist erforderlich.",
+      "zipOrPostCodeMaxLength": "PLZ oder Postleitzahl darf 15 Zeichen nicht überschreiten.",
+      "countryRequired": "Land ist erforderlich.",
+      "countryMaxLength": "Land darf 50 Zeichen nicht überschreiten."
+    },
+    "messages": {
+      "loadingPersons": "Personen werden geladen...",
+      "loading": "Adressen werden geladen...",
+      "selectPerson": "Wählen Sie eine Person aus, um Adressen anzuzeigen.",
+      "noPersons": "Keine Personen verfügbar. Erstellen Sie zuerst eine Person.",
+      "noData": "Keine Adressen für die ausgewählte Person gefunden.",
+      "loadPersonsFailed": "Personen konnten nicht geladen werden.",
+      "loadFailed": "Adressen konnten nicht geladen werden.",
+      "createFailed": "Adresse konnte nicht erstellt werden.",
+      "updateFailed": "Adresse konnte nicht aktualisiert werden.",
+      "deleteFailed": "Adresse konnte nicht gelöscht werden.",
+      "deleteConfirm": "Adresse \"{addressLine1}\" löschen?"
+    }
+  }
+}

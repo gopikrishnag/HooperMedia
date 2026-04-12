@@ -1,0 +1,124 @@
+<!-- TODO: Need to break into smaller components. -->
+<section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+  <div class="mb-6 flex items-center justify-between gap-4">
+    <h1 class="text-2xl font-semibold text-slate-800">{{ translate('person.title') }}</h1>
+  </div>
+
+  <div class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+    <form [formGroup]="personForm" (ngSubmit)="savePerson()" class="grid gap-4 md:grid-cols-3">
+      <div class="md:col-span-1">
+        <label for="name" class="mb-1 block text-sm font-medium text-slate-700">{{ translate('person.form.nameLabel') }}</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          [placeholder]="translate('person.form.namePlaceholder')"
+          class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+        />
+        @if (personForm.controls.name.touched && personForm.controls.name.invalid) {
+            @if (personForm.controls.name.hasError('required')) {
+              <p class="mt-1 text-xs text-red-600">{{ translate('person.validation.nameRequired') }}</p>
+            }
+            @if (personForm.controls.name.hasError('maxlength')) {
+              <p class="mt-1 text-xs text-red-600">{{ translate('person.validation.nameMaxLength') }}</p>
+            }
+        }
+      </div>
+
+      <div class="md:col-span-1">
+        <label for="dateOfBirth" class="mb-1 block text-sm font-medium text-slate-700">{{ translate('person.form.dateOfBirthLabel') }}</label>
+        <input
+          id="dateOfBirth"
+          type="date"
+          formControlName="dateOfBirth"
+          class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+        />
+        @if (personForm.controls.dateOfBirth.touched && personForm.controls.dateOfBirth.invalid) {
+            @if (personForm.controls.dateOfBirth.hasError('required')) {
+              <p class="mt-1 text-xs text-red-600">{{ translate('person.validation.dateOfBirthRequired') }}</p>
+            }
+            @if (personForm.controls.dateOfBirth.hasError('futureDate')) {
+              <p class="mt-1 text-xs text-red-600">{{ translate('person.validation.futureDate') }}</p>
+            }
+            @if (personForm.controls.dateOfBirth.hasError('tooOld')) {
+              <p class="mt-1 text-xs text-red-600">{{ translate('person.validation.tooOld') }}</p>
+            }
+        }
+      </div>
+
+      <div class="flex items-end gap-2 md:col-span-1">
+        <button
+          type="submit"
+          [disabled]="submitting()"
+          class="rounded-md bg-slate-800 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {{ submitButtonText }}
+        </button>
+
+        @if (isEditMode) {
+          <button
+            type="button"
+            (click)="cancelEdit()"
+            class="rounded-md border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+          >
+            {{ translate('person.actions.cancel') }}
+          </button>
+        }
+      </div>
+    </form>
+  </div>
+
+  @if (errorMessage()) {
+    <div class="mt-4 rounded-md border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700">
+      {{ errorMessage() }}
+    </div>
+  }
+
+  <div class="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+    <table class="min-w-full divide-y divide-slate-200">
+      <thead class="bg-slate-50">
+        <tr>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('person.table.name') }}</th>
+          <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('person.table.dateOfBirth') }}</th>
+          <th class="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-slate-600">{{ translate('person.table.actions') }}</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-100">
+        @if (loading()) {
+          <tr>
+            <td colspan="3" class="px-4 py-8 text-center text-sm text-slate-500">{{ translate('person.messages.loading') }}</td>
+          </tr>
+        } @else if (persons().length === 0) {
+          <tr>
+            <td colspan="3" class="px-4 py-8 text-center text-sm text-slate-500">{{ translate('person.messages.noData') }}</td>
+          </tr>
+        } @else {
+          @for (person of persons(); track person.personId) {
+            <tr>
+              <td class="px-4 py-3 text-sm text-slate-900">{{ person.name }}</td>
+              <td class="px-4 py-3 text-sm text-slate-700">{{ person.dateOfBirth | date:'mediumDate' }}</td>
+              <td class="px-4 py-3 text-right text-sm">
+                <div class="inline-flex items-center gap-2">
+                  <button
+                    type="button"
+                    (click)="editPerson(person)"
+                    class="rounded-md border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100"
+                  >
+                    {{ translate('person.actions.edit') }}
+                  </button>
+                  <button
+                    type="button"
+                    (click)="deletePerson(person)"
+                    class="rounded-md border border-red-300 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-50"
+                  >
+                    {{ translate('person.actions.delete') }}
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

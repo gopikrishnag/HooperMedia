@@ -1,0 +1,18 @@
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      no_cache: true
+    container_name: hoopermedia-client
+    restart: unless-stopped
+    environment:
+      NODE_ENV: "production"
+      PORT: "4000"
+    ports:
+      - "56165:4000"
+    networks:
+      - hoopermedia-client-network
+
+networks:
+  hoopermedia-client-network:

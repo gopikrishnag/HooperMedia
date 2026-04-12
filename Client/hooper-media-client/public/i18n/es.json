@@ -1,0 +1,107 @@
+{
+  "app": {
+    "menu": {
+      "openMain": "Abrir menu principal",
+      "person": "Persona",
+      "address": "Direccion",
+      "viewNotifications": "Ver notificaciones"
+    },
+    "language": {
+      "label": "Idioma"
+    }
+  },
+  "person": {
+    "title": "Personas",
+    "form": {
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Ingrese el nombre completo",
+      "dateOfBirthLabel": "Fecha de nacimiento"
+    },
+    "table": {
+      "name": "Nombre",
+      "dateOfBirth": "Fecha de nacimiento",
+      "actions": "Acciones"
+    },
+    "actions": {
+      "add": "Agregar persona",
+      "update": "Actualizar persona",
+      "cancel": "Cancelar",
+      "edit": "Editar",
+      "delete": "Eliminar"
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio.",
+      "nameMaxLength": "El nombre no debe exceder 50 caracteres.",
+      "dateOfBirthRequired": "La fecha de nacimiento es obligatoria.",
+      "futureDate": "La fecha de nacimiento no puede ser en el futuro.",
+      "tooOld": "La edad no puede exceder 100 anos."
+    },
+    "messages": {
+      "loading": "Cargando personas...",
+      "noData": "No se encontraron personas.",
+      "loadFailed": "Error al cargar personas.",
+      "createFailed": "Error al crear la persona.",
+      "updateFailed": "Error al actualizar la persona.",
+      "deleteFailed": "Error al eliminar la persona.",
+      "deleteConfirm": "Eliminar {name}?"
+    }
+  },
+  "address": {
+    "title": "Direcciones",
+    "form": {
+      "personIdLabel": "Id de persona",
+      "personIdPlaceholder": "Seleccione el id de persona",
+      "addressLine1Label": "Direccion linea 1",
+      "addressLine1Placeholder": "Ingrese la direccion linea 1",
+      "addressLine2Label": "Direccion linea 2",
+      "addressLine2Placeholder": "Ingrese la direccion linea 2",
+      "townOrCityLabel": "Ciudad",
+      "townOrCityPlaceholder": "Ingrese la ciudad",
+      "zipOrPostCodeLabel": "Codigo postal",
+      "zipOrPostCodePlaceholder": "Ingrese el codigo postal",
+      "countryLabel": "Pais",
+      "countryPlaceholder": "Ingrese el pais"
+    },
+    "table": {
+      "personId": "Id de persona",
+      "addressLine1": "Direccion linea 1",
+      "addressLine2": "Direccion linea 2",
+      "townOrCity": "Ciudad",
+      "zipOrPostCode": "Codigo postal",
+      "country": "Pais",
+      "actions": "Acciones"
+    },
+    "actions": {
+      "add": "Agregar direccion",
+      "update": "Actualizar direccion",
+      "cancel": "Cancelar",
+      "edit": "Editar",
+      "delete": "Eliminar"
+    },
+    "validation": {
+      "personIdRequired": "La seleccion de persona es obligatoria.",
+      "addressLine1Required": "La direccion linea 1 es obligatoria.",
+      "addressLine1MaxLength": "La direccion linea 1 no debe exceder 100 caracteres.",
+      "addressLine2MaxLength": "La direccion linea 2 no debe exceder 100 caracteres.",
+      "townOrCityRequired": "La ciudad es obligatoria.",
+      "townOrCityMaxLength": "La ciudad no debe exceder 100 caracteres.",
+      "zipOrPostCodeRequired": "El codigo postal es obligatorio.",
+      "zipOrPostCodeMaxLength": "El codigo postal no debe exceder 15 caracteres.",
+      "countryRequired": "El pais es obligatorio.",
+      "countryMaxLength": "El pais no debe exceder 50 caracteres."
+    },
+    "messages": {
+      "loadingPersons": "Cargando personas...",
+      "loading": "Cargando direcciones...",
+      "selectPerson": "Seleccione una persona para ver direcciones.",
+      "noPersons": "No hay personas disponibles. Cree primero una persona.",
+      "noData": "No se encontraron direcciones para la persona seleccionada.",
+      "loadPersonsFailed": "Error al cargar personas.",
+      "loadFailed": "Error al cargar direcciones.",
+      "createFailed": "Error al crear la direccion.",
+      "updateFailed": "Error al actualizar la direccion.",
+      "deleteFailed": "Error al eliminar la direccion.",
+      "deleteConfirm": "Eliminar la direccion \"{addressLine1}\"?"
+    }
+  }
+}

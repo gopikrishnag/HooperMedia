@@ -1,0 +1,15 @@
+{
+  "defaultLanguage": "en",
+  "languages": [
+    { "code": "en", "label": "English" },
+    { "code": "fr", "label": "Franch" },
+    { "code": "es", "label": "Spanish" },
+    { "code": "de", "label": "German" }
+  ],
+  "translationFiles": {
+    "en": "/i18n/en.json",
+    "fr": "/i18n/fr.json",
+    "es": "/i18n/es.json",
+    "de": "/i18n/de.json"
+  }
+}

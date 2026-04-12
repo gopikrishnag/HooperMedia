@@ -1,0 +1,107 @@
+{
+  "app": {
+    "menu": {
+      "openMain": "Ouvrir le menu principal",
+      "person": "Personne",
+      "address": "Adresse",
+      "viewNotifications": "Voir les notifications"
+    },
+    "language": {
+      "label": "Langue"
+    }
+  },
+  "person": {
+    "title": "Personnes",
+    "form": {
+      "nameLabel": "Nom",
+      "namePlaceholder": "Entrez le nom complet",
+      "dateOfBirthLabel": "Date de naissance"
+    },
+    "table": {
+      "name": "Nom",
+      "dateOfBirth": "Date de naissance",
+      "actions": "Actions"
+    },
+    "actions": {
+      "add": "Ajouter une personne",
+      "update": "Mettre a jour",
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    },
+    "validation": {
+      "nameRequired": "Le nom est obligatoire.",
+      "nameMaxLength": "Le nom ne doit pas depasser 50 caracteres.",
+      "dateOfBirthRequired": "La date de naissance est obligatoire.",
+      "futureDate": "La date de naissance ne peut pas etre dans le futur.",
+      "tooOld": "L'age ne peut pas depasser 100 ans."
+    },
+    "messages": {
+      "loading": "Chargement des personnes...",
+      "noData": "Aucune personne trouvee.",
+      "loadFailed": "Echec du chargement des personnes.",
+      "createFailed": "Echec de la creation de la personne.",
+      "updateFailed": "Echec de la mise a jour de la personne.",
+      "deleteFailed": "Echec de la suppression de la personne.",
+      "deleteConfirm": "Supprimer {name} ?"
+    }
+  },
+  "address": {
+    "title": "Adresses",
+    "form": {
+      "personIdLabel": "Identifiant de la personne",
+      "personIdPlaceholder": "Selectionnez l'identifiant de la personne",
+      "addressLine1Label": "Adresse ligne 1",
+      "addressLine1Placeholder": "Entrez l'adresse ligne 1",
+      "addressLine2Label": "Adresse ligne 2",
+      "addressLine2Placeholder": "Entrez l'adresse ligne 2",
+      "townOrCityLabel": "Ville",
+      "townOrCityPlaceholder": "Entrez la ville",
+      "zipOrPostCodeLabel": "Code postal",
+      "zipOrPostCodePlaceholder": "Entrez le code postal",
+      "countryLabel": "Pays",
+      "countryPlaceholder": "Entrez le pays"
+    },
+    "table": {
+      "personId": "Identifiant",
+      "addressLine1": "Adresse ligne 1",
+      "addressLine2": "Adresse ligne 2",
+      "townOrCity": "Ville",
+      "zipOrPostCode": "Code postal",
+      "country": "Pays",
+      "actions": "Actions"
+    },
+    "actions": {
+      "add": "Ajouter une adresse",
+      "update": "Mettre a jour l'adresse",
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    },
+    "validation": {
+      "personIdRequired": "La selection d'une personne est obligatoire.",
+      "addressLine1Required": "L'adresse ligne 1 est obligatoire.",
+      "addressLine1MaxLength": "L'adresse ligne 1 ne doit pas depasser 100 caracteres.",
+      "addressLine2MaxLength": "L'adresse ligne 2 ne doit pas depasser 100 caracteres.",
+      "townOrCityRequired": "La ville est obligatoire.",
+      "townOrCityMaxLength": "La ville ne doit pas depasser 100 caracteres.",
+      "zipOrPostCodeRequired": "Le code postal est obligatoire.",
+      "zipOrPostCodeMaxLength": "Le code postal ne doit pas depasser 15 caracteres.",
+      "countryRequired": "Le pays est obligatoire.",
+      "countryMaxLength": "Le pays ne doit pas depasser 50 caracteres."
+    },
+    "messages": {
+      "loadingPersons": "Chargement des personnes...",
+      "loading": "Chargement des adresses...",
+      "selectPerson": "Selectionnez une personne pour voir les adresses.",
+      "noPersons": "Aucune personne disponible. Creez d'abord une personne.",
+      "noData": "Aucune adresse trouvee pour la personne selectionnee.",
+      "loadPersonsFailed": "Echec du chargement des personnes.",
+      "loadFailed": "Echec du chargement des adresses.",
+      "createFailed": "Echec de la creation de l'adresse.",
+      "updateFailed": "Echec de la mise a jour de l'adresse.",
+      "deleteFailed": "Echec de la suppression de l'adresse.",
+      "deleteConfirm": "Supprimer l'adresse \"{addressLine1}\" ?"
+    }
+  }
+}
