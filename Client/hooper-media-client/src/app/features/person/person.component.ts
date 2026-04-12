@@ -4,6 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { Person, CreatePersonRequest } from './person.model';
 import { PersonService } from './person.service';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-person',
@@ -14,6 +15,7 @@ export class PersonComponent {
   private readonly personService = inject(PersonService);
   private readonly formBuilder = inject(FormBuilder);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly languageService = inject(LanguageService);
 
   readonly personForm = this.formBuilder.nonNullable.group({
     name: ['', [Validators.required, Validators.maxLength(100)]],
@@ -33,7 +35,9 @@ export class PersonComponent {
   }
 
   get submitButtonLabel(): string {
-    return this.editingPersonId() === null ? 'Add Person' : 'Update Person';
+    return this.editingPersonId() === null
+      ? this.t('person.actions.add')
+      : this.t('person.actions.update');
   }
 
   get isEditMode(): boolean {
@@ -55,7 +59,7 @@ export class PersonComponent {
         this.loading.set(false);
       },
       error: () => {
-        this.errorMessage.set('Failed to load persons.');
+        this.errorMessage.set(this.t('person.messages.loadFailed'));
         this.loading.set(false);
       }
     });
@@ -78,7 +82,7 @@ export class PersonComponent {
           this.afterSuccessfulSave();
         },
         error: () => {
-          this.handleSaveError('Failed to create person.');
+          this.handleSaveError(this.t('person.messages.createFailed'));
         }
       });
       return;
@@ -89,7 +93,7 @@ export class PersonComponent {
         this.afterSuccessfulSave();
       },
       error: () => {
-        this.handleSaveError('Failed to update person.');
+        this.handleSaveError(this.t('person.messages.updateFailed'));
       }
     });
   }
@@ -112,7 +116,7 @@ export class PersonComponent {
   }
 
   deletePerson(person: Person): void {
-    const shouldDelete = window.confirm(`Delete ${person.name}?`);
+    const shouldDelete = window.confirm(this.t('person.messages.deleteConfirm', { name: person.name }));
     if (!shouldDelete) {
       return;
     }
@@ -126,9 +130,13 @@ export class PersonComponent {
         this.loadPersons();
       },
       error: () => {
-        this.errorMessage.set('Failed to delete person.');
+        this.errorMessage.set(this.t('person.messages.deleteFailed'));
       }
     });
+  }
+
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.languageService.t(key, params);
   }
 
   private buildRequestPayload(): CreatePersonRequest {

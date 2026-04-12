@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { LanguageService } from './core/services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,12 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
+  private readonly languageService = inject(LanguageService);
+
   protected readonly title = signal('hooper-media-client');
   protected readonly isMobileMenuOpen = signal(false);
+  protected readonly languages = this.languageService.languages;
+  protected readonly currentLanguage = this.languageService.currentLanguage;
 
   protected toggleMobileMenu(): void {
     this.isMobileMenuOpen.update((isOpen) => !isOpen);
@@ -17,5 +22,13 @@ export class App {
 
   protected closeMobileMenu(): void {
     this.isMobileMenuOpen.set(false);
+  }
+
+  protected async changeLanguage(languageCode: string): Promise<void> {
+    await this.languageService.setLanguage(languageCode);
+  }
+
+  protected t(key: string): string {
+    return this.languageService.t(key);
   }
 }

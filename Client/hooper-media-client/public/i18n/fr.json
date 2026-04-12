@@ -1,0 +1,46 @@
+{
+  "app": {
+    "menu": {
+      "openMain": "Ouvrir le menu principal",
+      "person": "Personne",
+      "address": "Adresse",
+      "viewNotifications": "Voir les notifications"
+    },
+    "language": {
+      "label": "Langue"
+    }
+  },
+  "person": {
+    "title": "Personnes",
+    "form": {
+      "nameLabel": "Nom",
+      "namePlaceholder": "Entrez le nom complet",
+      "dateOfBirthLabel": "Date de naissance"
+    },
+    "table": {
+      "name": "Nom",
+      "dateOfBirth": "Date de naissance",
+      "actions": "Actions"
+    },
+    "actions": {
+      "add": "Ajouter une personne",
+      "update": "Mettre a jour",
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    },
+    "validation": {
+      "nameRequired": "Le nom est obligatoire.",
+      "dateOfBirthRequired": "La date de naissance est obligatoire."
+    },
+    "messages": {
+      "loading": "Chargement des personnes...",
+      "noData": "Aucune personne trouvee.",
+      "loadFailed": "Echec du chargement des personnes.",
+      "createFailed": "Echec de la creation de la personne.",
+      "updateFailed": "Echec de la mise a jour de la personne.",
+      "deleteFailed": "Echec de la suppression de la personne.",
+      "deleteConfirm": "Supprimer {name} ?"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "app": {
+    "menu": {
+      "openMain": "Hauptmenü öffnen",
+      "person": "Person",
+      "address": "Adresse",
+      "viewNotifications": "Benachrichtigungen anzeigen"
+    },
+    "language": {
+      "label": "Sprache"
+    }
+  },
+  "person": {
+    "title": "Personen",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Vollständigen Namen eingeben",
+      "dateOfBirthLabel": "Geburtsdatum"
+    },
+    "table": {
+      "name": "Name",
+      "dateOfBirth": "Geburtsdatum",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "add": "Person hinzufügen",
+      "update": "Person aktualisieren",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen"
+    },
+    "validation": {
+      "nameRequired": "Name ist erforderlich.",
+      "dateOfBirthRequired": "Geburtsdatum ist erforderlich."
+    },
+    "messages": {
+      "loading": "Personen werden geladen...",
+      "noData": "Keine Personen gefunden.",
+      "loadFailed": "Personen konnten nicht geladen werden.",
+      "createFailed": "Person konnte nicht erstellt werden.",
+      "updateFailed": "Person konnte nicht aktualisiert werden.",
+      "deleteFailed": "Person konnte nicht gelöscht werden.",
+      "deleteConfirm": "{name} löschen?"
+    }
+  }
+}
