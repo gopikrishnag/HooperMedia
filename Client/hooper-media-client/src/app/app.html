@@ -71,7 +71,7 @@
         </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex items-center space-x-4">
-            <a href="#" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Person</a>
+            <a routerLink="/persons" routerLinkActive="bg-gray-900 text-white" [routerLinkActiveOptions]="{ exact: true }" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Person</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Address</a>
           </div>
         </div>
@@ -93,7 +93,7 @@
   @if (isMobileMenuOpen()) {
   <div id="mobile-menu" class="sm:hidden border-t border-white/10 bg-gray-800">
     <div class="space-y-1 px-2 pb-3 pt-2">
-      <a href="#" (click)="closeMobileMenu()" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Person</a>
+      <a routerLink="/persons" routerLinkActive="bg-gray-900 text-white" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Person</a>
       <a href="#" (click)="closeMobileMenu()" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Address</a>
     </div>
   </div>
