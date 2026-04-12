@@ -53,16 +53,19 @@ export class AddressComponent implements OnInit, OnDestroy {
       .get('personId')
       ?.valueChanges.pipe(distinctUntilChanged())
       .subscribe((personId: number | null) => {
-        if (this.isDestroyed) return;
+        if (this.isDestroyed) {
+          return;
+        }
 
         this.addresses.set([]);
-        this.cancelEdit();
 
         if (personId && Number.isInteger(personId) && personId > 0) {
           this.selectedPersonId.set(personId);
+          this.cancelEdit();
           this.loadAddresses(personId);
         } else {
           this.selectedPersonId.set(null);
+          this.cancelEdit();
         }
       });
   }
