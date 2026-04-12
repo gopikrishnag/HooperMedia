@@ -31,7 +31,10 @@
     },
     "validation": {
       "nameRequired": "Name is required.",
-      "dateOfBirthRequired": "Date of birth is required."
+      "nameMaxLength": "Name must not exceed 50 characters.",
+      "dateOfBirthRequired": "Date of birth is required.",
+      "futureDate": "Date of birth cannot be in the future.",
+      "tooOld": "Age cannot exceed 100 years."
     },
     "messages": {
       "loading": "Loading persons...",

@@ -31,7 +31,10 @@
     },
     "validation": {
       "nameRequired": "Le nom est obligatoire.",
-      "dateOfBirthRequired": "La date de naissance est obligatoire."
+      "nameMaxLength": "Le nom ne doit pas depasser 50 caracteres.",
+      "dateOfBirthRequired": "La date de naissance est obligatoire.",
+      "futureDate": "La date de naissance ne peut pas etre dans le futur.",
+      "tooOld": "L'age ne peut pas depasser 100 ans."
     },
     "messages": {
       "loading": "Chargement des personnes...",

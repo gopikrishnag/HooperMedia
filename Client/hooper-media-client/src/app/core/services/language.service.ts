@@ -114,7 +114,7 @@ export class LanguageService {
     }
   }
 
-  t(key: string, params?: Record<string, string | number>): string {
+  translate(key: string, params?: Record<string, string | number>): string {
     const value = this.getByPath(this.translations(), key);
     const template = typeof value === 'string' ? value : key;
 

@@ -1,3 +1,4 @@
+
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, PLATFORM_ID, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -5,7 +6,8 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Person, CreatePersonRequest } from './person.model';
 import { PersonService } from './person.service';
 import { LanguageService } from '../../core/services/language.service';
-
+import { PERSON_VALIDATION } from './config/person-validation.config';
+import { dateOfBirthValidator, nameValidator } from './validators/person.validators';
 @Component({
   selector: 'app-person',
   imports: [CommonModule, ReactiveFormsModule],
@@ -18,8 +20,8 @@ export class PersonComponent {
   private readonly languageService = inject(LanguageService);
 
   readonly personForm = this.formBuilder.nonNullable.group({
-    name: ['', [Validators.required, Validators.maxLength(100)]],
-    dateOfBirth: ['', [Validators.required]]
+    name: ['', [Validators.required, Validators.maxLength(PERSON_VALIDATION.nameMaxLength), nameValidator]],
+    dateOfBirth: ['', [Validators.required, dateOfBirthValidator]]
   });
 
   readonly persons = signal<Person[]>([]);
@@ -34,10 +36,10 @@ export class PersonComponent {
     }
   }
 
-  get submitButtonLabel(): string {
+  get submitButtonText(): string {
     return this.editingPersonId() === null
-      ? this.t('person.actions.add')
-      : this.t('person.actions.update');
+      ? this.translate('person.actions.add')
+      : this.translate('person.actions.update');
   }
 
   get isEditMode(): boolean {
@@ -59,7 +61,7 @@ export class PersonComponent {
         this.loading.set(false);
       },
       error: () => {
-        this.errorMessage.set(this.t('person.messages.loadFailed'));
+        this.errorMessage.set(this.translate('person.messages.loadFailed'));
         this.loading.set(false);
       }
     });
@@ -82,7 +84,7 @@ export class PersonComponent {
           this.afterSuccessfulSave();
         },
         error: () => {
-          this.handleSaveError(this.t('person.messages.createFailed'));
+          this.handleSaveError(this.translate('person.messages.createFailed'));
         }
       });
       return;
@@ -93,7 +95,7 @@ export class PersonComponent {
         this.afterSuccessfulSave();
       },
       error: () => {
-        this.handleSaveError(this.t('person.messages.updateFailed'));
+        this.handleSaveError(this.translate('person.messages.updateFailed'));
       }
     });
   }
@@ -116,7 +118,7 @@ export class PersonComponent {
   }
 
   deletePerson(person: Person): void {
-    const shouldDelete = window.confirm(this.t('person.messages.deleteConfirm', { name: person.name }));
+    const shouldDelete = window.confirm(this.translate('person.messages.deleteConfirm', { name: person.name }));
     if (!shouldDelete) {
       return;
     }
@@ -130,13 +132,13 @@ export class PersonComponent {
         this.loadPersons();
       },
       error: () => {
-        this.errorMessage.set(this.t('person.messages.deleteFailed'));
+        this.errorMessage.set(this.translate('person.messages.deleteFailed'));
       }
     });
   }
 
-  t(key: string, params?: Record<string, string | number>): string {
-    return this.languageService.t(key, params);
+  translate(key: string, params?: Record<string, string | number>): string {
+    return this.languageService.translate(key, params);
   }
 
   private buildRequestPayload(): CreatePersonRequest {

@@ -31,7 +31,10 @@
     },
     "validation": {
       "nameRequired": "El nombre es obligatorio.",
-      "dateOfBirthRequired": "La fecha de nacimiento es obligatoria."
+      "nameMaxLength": "El nombre no debe exceder 50 caracteres.",
+      "dateOfBirthRequired": "La fecha de nacimiento es obligatoria.",
+      "futureDate": "La fecha de nacimiento no puede ser en el futuro.",
+      "tooOld": "La edad no puede exceder 100 anos."
     },
     "messages": {
       "loading": "Cargando personas...",

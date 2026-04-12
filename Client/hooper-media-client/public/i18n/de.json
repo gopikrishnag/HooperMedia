@@ -31,7 +31,10 @@
     },
     "validation": {
       "nameRequired": "Name ist erforderlich.",
-      "dateOfBirthRequired": "Geburtsdatum ist erforderlich."
+      "nameMaxLength": "Name darf 50 Zeichen nicht überschreiten.",
+      "dateOfBirthRequired": "Geburtsdatum ist erforderlich.",
+      "futureDate": "Das Geburtsdatum kann nicht in der Zukunft liegen.",
+      "tooOld": "Das Alter kann 100 Jahre nicht überschreiten."
     },
     "messages": {
       "loading": "Personen werden geladen...",

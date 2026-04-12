@@ -24,11 +24,11 @@ export class App {
     this.isMobileMenuOpen.set(false);
   }
 
-  protected async changeLanguage(languageCode: string): Promise<void> {
+  protected async updateLanguage(languageCode: string): Promise<void> {
     await this.languageService.setLanguage(languageCode);
   }
 
-  protected t(key: string): string {
-    return this.languageService.t(key);
+  protected translate(key: string): string {
+    return this.languageService.translate(key);
   }
 }
