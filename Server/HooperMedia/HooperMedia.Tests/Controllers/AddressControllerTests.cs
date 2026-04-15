@@ -4,26 +4,25 @@ using HooperMedia.Core.Entities;
 using HooperMedia.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Moq;
-
+using NSubstitute;
 
 namespace HooperMedia.Tests.Controllers
 {
     public class AddressControllerTests
     {
-        private readonly Mock<IAddressService> _addressServiceMock = new();
-        private readonly Mock<IPersonService> _personServiceMock = new();
-        private readonly Mock<ILogger<AddressController>> _loggerMock = new();
+        private readonly IAddressService _addressServiceMock = Substitute.For<IAddressService>();
+        private readonly IPersonService _personServiceMock = Substitute.For<IPersonService>();
+        private readonly ILogger<AddressController> _loggerMock = Substitute.For<ILogger<AddressController>>();
 
         private AddressController CreateController() =>
-            new(_loggerMock.Object, _addressServiceMock.Object, _personServiceMock.Object);
+            new(_loggerMock, _addressServiceMock, _personServiceMock);
 
         [Fact]
         public async Task UpdateAddress_ReturnsNotFound_WhenAddressDoesNotExist()
         {
             // Arrange
             var controller = CreateController();
-            _addressServiceMock.Setup(s => s.GetAddressByIdAsync(It.IsAny<int>())).ReturnsAsync((Address)null);
+            _addressServiceMock.GetAddressByIdAsync(Arg.Any<int>()).Returns((Address?)null);
 
             // Act
             var result = await controller.UpdateAddress(1, new AddressDto
@@ -45,8 +44,8 @@ namespace HooperMedia.Tests.Controllers
             var controller = CreateController();
             var address = new Address { AddressId = 1, PersonId = 1, AddressLine1 = "A", TownOrCity = "City", ZipOrPostCode = "123", Country = "Country" };
             var updated = new Address { AddressId = 1, PersonId = 1, AddressLine1 = "B", TownOrCity = "City", ZipOrPostCode = "123", Country = "Country" };
-            _addressServiceMock.Setup(s => s.GetAddressByIdAsync(1)).ReturnsAsync(address);
-            _addressServiceMock.Setup(s => s.UpdateAddressAsync(It.IsAny<Address>())).ReturnsAsync(updated);
+            _addressServiceMock.GetAddressByIdAsync(1).Returns(address);
+            _addressServiceMock.UpdateAddressAsync(Arg.Any<Address>()).Returns(updated);
 
             var dto = new AddressDto { AddressId = 1, PersonId = 1, AddressLine1 = "B", TownOrCity = "City", ZipOrPostCode = "123", Country = "Country" };
 
